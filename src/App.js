@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import Users from './Users';
+import React from 'react';
+import Student from './Student';
 
 export default function App() {
 
   return (
     <>
-      <Users />
-      <h1>JSX</h1>
+      <Student />
     </>
-  );
+  )
 
-};
-
-
+}
