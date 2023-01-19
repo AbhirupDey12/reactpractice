@@ -1,27 +1,37 @@
-import React, { Component } from 'react'
+// Form Handling 
+
+import React, { Component, useState } from 'react'
 
 export default function Student(props) {
 
-     const [status, setStatus] = React.useState(true);
-     const [show, setShow] = React.useState("Hide");
+     const [name, setName] = useState("");
+     const [intrest, setIntrest] = useState("");
+     const [tnc, setTnc] = useState(false);
 
-     function clickHandler() {
-          if (status === true) {
-               setStatus(false);
-               setShow("Show")
-          }
-          else {
-               setStatus(true);
-               setShow("Hide") 
-          }
+     function getFormData(e) {
+          e.preventDefault();
+          console.log(name);
+          console.log(tnc);
+          console.log(intrest);
+          setName("") ;
+          setIntrest("options") ;
+          setTnc(false) ;
      }
 
      return (
-          <div>
-               {
-                    status ? <h1>Hello Everybody !!! </h1> : null
-               }
-               <button onClick={() => clickHandler()} > {show} </button>
+          <div style={{ textAlign: "center" }} >
+               <h1>Handle Form In React </h1>
+               <form onSubmit={getFormData}>
+                    <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />  <br />   <br />
+                    <select onChange={(e) => setIntrest(e.target.value)} required value={intrest} >
+                         <option value="options"> Select Options </option>
+                         <option value="marvel"> Marvel </option>
+                         <option value="dcComit"> DC Comic </option>
+                    </select>   <br />   <br />
+                    <input type="checkbox" onChange={(e) => setTnc(e.target.checked)} required value={tnc} />
+                    <span>Accept Terms and Conditions</span> <br />   <br />
+                    <button>Submit</button>
+               </form>
           </div>
      )
 
