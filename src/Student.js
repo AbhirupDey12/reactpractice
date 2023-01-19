@@ -12,7 +12,7 @@ export default function Student(props) {
           }
           else {
                setStatus(true);
-               setShow("Hide") ;
+               setShow("Hide") 
           }
      }
 
