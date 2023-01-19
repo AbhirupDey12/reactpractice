@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 
-export default class Users extends Component {
-  constructor(props) {
-    super(props);
+export default function User() {
+
+  let data = "anil sidhu" ;
+
+  function apple() {
+    data = 'peter'  ;
+    alert(data);
   }
 
-  render() {
-    return (
-      <h1>Hello from Users</h1>
-    )
-  }
+  return (
+    <div>
+      <h1> {data} </h1>
+      <button onClick={ apple }> Click Me </button>
+    </div>
+  )
 
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+}
