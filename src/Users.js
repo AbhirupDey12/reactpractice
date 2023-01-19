@@ -1,13 +1,14 @@
-import React from 'react' ;
+import React, { Component } from 'react';
 
-const Users = () => {
-  return (
-    <div>
-          Users Component...
-    </div>
-  )
-}
+export default class Users extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default Users ;
+  render() {
+    return (
+      <h1>Hello from Users</h1>
+    )
+  }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
