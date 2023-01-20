@@ -1,11 +1,11 @@
 import React from 'react';
-import Student from './Student';
+import Profile from './Profile';
 
 export default function App() {
 
   return (
     <>
-      <Student />
+      <Profile />
     </>
   )
 
