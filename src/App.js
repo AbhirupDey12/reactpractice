@@ -1,41 +1,74 @@
-import React, { Component } from 'react';
-import User from './User';
+import React from 'react';
+import Table from 'react-bootstrap/Table';
 
-class App extends Component {
+export default function App() {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: true
+  const users = [
+    {
+      name: 'anil', email: "anil@test.com", address: [
+        { Hn: "10", city: "Noida", country: "India" },
+        { Hn: "11", city: "Delhi", country: "India" },
+        { Hn: "34", city: "Kolkata", country: "India" },
+        { Hn: "100", city: "Chennai", country: "India" },
+      ]
+    },
+    {
+      name: 'sidhu', email: "sidhu@test.com", address: [
+        { Hn: "10", city: "Noida", country: "India" },
+        { Hn: "11", city: "Delhi", country: "India" },
+        { Hn: "34", city: "Kolkata", country: "India" },
+        { Hn: "100", city: "Chennai", country: "India" },
+      ]
+    },
+    {
+      name: 'sidhu', email: "sidhu@test.com", address: [
+        { Hn: "10", city: "Noida", country: "India" },
+        { Hn: "11", city: "Delhi", country: "India" },
+        { Hn: "34", city: "Kolkata", country: "India" },
+        { Hn: "100", city: "Chennai", country: "India" },
+      ]
+    },
+    {
+      name: 'sidhu', email: "sidhu@test.com", address: [
+        { Hn: "10", city: "Noida", country: "India" },
+        { Hn: "11", city: "Delhi", country: "India" },
+        { Hn: "34", city: "Kolkata", country: "India" },
+        { Hn: "100", city: "Chennai", country: "India" },
+      ]
     }
-  }
+  ]
 
-  // componentDidMount() {
-  //   console.warn("componentDidMount");
-  // }
+  return (
 
-  // ComponentDidUpdate will never be invoked if shouldComponentUpdate() is false  
-  // componentDidUpdate(preProps, preState, snapShot) {
-  //   console.warn("componentDidUpdate", snapShot); 
-  //   if (this.state.count < 10) this.setState({ count: this.state.count + 1 });
-  // }
-
-  // shouldComponentUpdate
-  // shouldComponentUpdate() {
-  //   console.warn("shouldComponentUpdate", this.state.count);
-  //   if (this.state.count > 5 && this.state.count < 10) return true;
-  // }
-
-  render() {
-    return (
-      <div>
-        {this.state.show ? <User /> : <h1> Child Component Removed </h1>}
-        <button onClick={() => this.setState({ show: !this.state.show })}  > Toggle Child Component </button>
-      </div>
-    )
-  }
+    <div>
+      <h1>Nested List</h1>
+      <Table striped bordered hover>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Address</td>
+          </tr>
+        </tbody>
+        {
+          users.map((item) =>
+            <tr>
+              <td>{item.name}</td>
+              <td>{item.email}</td>
+              {
+                item.address.map((data) =>
+                  <tr>
+                    <td>{data.Hn}</td>
+                    <td>{data.city}</td>
+                    <td>{data.country}</td>
+                  </tr>
+                )
+              }
+            </tr>
+          )
+        }
+      </Table>
+    </div>
+  )
 
 }
-
-export default App;
-

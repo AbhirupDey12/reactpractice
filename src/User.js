@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-class User extends React.Component {
+export default function User(props) {
 
-     componentWillUnmount() {
-          console.log("componentWillUnmount is called");
-     }
+     useEffect(() => {
+          alert("count is " + props.count );
+     } , [props.count , props.data ]);
 
-     render() {
-          return (
-               <div>
-                    <h1> Student Component </h1>
-               </div>
-          )
-     }
+     return (
+          <div>
+               <h1> Count Props : {props.count} </h1>
+               <h1> Data Props : {props.data} </h1>
+          </div>
+     )
 
 }
 
-export default User;
