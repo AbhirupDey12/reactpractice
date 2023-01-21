@@ -1,23 +1,30 @@
-import React from 'react'
+import React , {useRef} from 'react'
 
 export default function App() {
 
-  const [count , setCount] = React.useState(0) ;
-  const [item , setItem] = React.useState(10) ;
+  let inputRef = useRef(null) ;
+  let inputRef2 = useRef(null) ;
 
-  const multiCountMemo = React.useMemo(function multiCount() {
-    console.warn('multiCount');
-    return count * 5 ;
-  } , [count]) ;
+  function submitForm(e) {
+    e.preventDefault() ;
+    console.log("inpuut feild 1 value : " , inputRef.current.value ) ;
+    console.log("inpuut feild 2 value : " , inputRef2.current.value ) ;
+    let input3 = document.getElementById('input3').value ;
+    console.log("inpuut feild 3 value : " , input3) ;
+  }
 
   return (
     <div>
-      <h1>Use Memo Hook React</h1>
-      <h2> Count : {count} </h2>
-      <h2> Item : {item} </h2>
-      <h2>{multiCountMemo}</h2>
-      <button onClick={() => setCount(count + 1) } >Update Count</button>
-      <button onClick={() => setItem(item * 10) } >Update Item</button>
+
+      <h1>Uncontrolled Component</h1>
+
+      <form onSubmit={submitForm}>
+        <input ref={inputRef} type="text" /> <br /> <br />
+        <input ref={inputRef2} type="text" /> <br /> <br />
+        <input id='input3' type="text" /> <br /> <br />
+        <button>Submit</button>
+      </form>
+
     </div>
   )
 }

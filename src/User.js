@@ -1,7 +1,11 @@
-import React from 'react'
+import React , {forwardRef} from 'react'
 
-export default function User() {
+function User(props , ref ) {
   return (
-    <div>User</div>
+    <div>
+          <input type="text" ref = {ref} />
+    </div>
   )
 }
+
+export default forwardRef(User) ;
